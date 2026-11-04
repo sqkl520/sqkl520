@@ -20,18 +20,11 @@ const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 
 // 我提过 PR 的外部仓库（定表，逐个精确统计，不依赖 search 索引）
 // 新增贡献过的仓库时在这里补一行
+// 注意：仓库若转为私有，徽章不应再计它 —— 外人看不到就不算公开贡献
 const EXTERNAL_REPOS = [
   'nan-tang-xi-xi-owo/BackupStudio',
-  'happy66dev/ServerWeb',
   'YsGqHY/BlackBoxPro',
 ];
-
-// 已知已合并数（API 查不到时兜底，避免徽章数字往回掉）
-const KNOWN_MERGED = {
-  'nan-tang-xi-xi-owo/BackupStudio': 2,
-  'happy66dev/ServerWeb': 1,
-  'YsGqHY/BlackBoxPro': 0,
-};
 
 async function api(p) {
   const url = 'https://api.github.com' + p;
@@ -71,7 +64,8 @@ async function fetchStats() {
   const stars = own.reduce((s, r) => s + r.stargazers_count, 0);
 
   // 已合并的对外 PR：逐个仓库查 PR 列表并按作者过滤，
-  // 不走 search API —— GITHUB_TOKEN 在 Actions 里的搜索结果会偏少
+  // 不走 search API —— GITHUB_TOKEN 在 Actions 里的搜索结果会偏少。
+  // 仓库不可见（转私有/删除）时直接跳过，只统计公开可见的贡献。
   let merged = 0;
   for (const repo of EXTERNAL_REPOS) {
     try {
@@ -86,12 +80,6 @@ async function fetchStats() {
       merged += repoCount;
     } catch (e) {
       console.log(`  跳过 ${repo}: ${String(e.message).slice(0, 80)}`);
-      // 查不到就按已知的最低估，避免数字往回掉
-      const fallback = KNOWN_MERGED[repo];
-      if (fallback) {
-        console.log(`  使用已知值 ${repo}: ${fallback}`);
-        merged += fallback;
-      }
     }
   }
 
