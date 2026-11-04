@@ -26,19 +26,35 @@ const EXTERNAL_REPOS = [
   'YsGqHY/BlackBoxPro',
 ];
 
+// 已知已合并数（API 查不到时兜底，避免徽章数字往回掉）
+const KNOWN_MERGED = {
+  'nan-tang-xi-xi-owo/BackupStudio': 2,
+  'happy66dev/ServerWeb': 1,
+  'YsGqHY/BlackBoxPro': 0,
+};
+
 async function api(p) {
   const url = 'https://api.github.com' + p;
-  const res = await fetch(url, {
-    headers: {
-      Authorization: 'Bearer ' + TOKEN,
-      Accept: 'application/vnd.github+json',
-      'User-Agent': USER + '-profile-stats',
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`${res.status} ${res.statusText} for ${p}: ${(await res.text()).slice(0, 200)}`);
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const res = await fetch(url, {
+      headers: {
+        Authorization: 'Bearer ' + TOKEN,
+        Accept: 'application/vnd.github+json',
+        'User-Agent': USER + '-profile-stats',
+      },
+    });
+    if (res.ok) return res.json();
+    // 5xx / 429 重试
+    if (res.status >= 500 || res.status === 429) {
+      await new Promise((r) => setTimeout(r, 1500 * attempt));
+      continue;
+    }
+    const body = (await res.text()).slice(0, 200);
+    const err = new Error(`${res.status} ${res.statusText} for ${p}: ${body}`);
+    err.status = res.status;
+    throw err;
   }
-  return res.json();
+  throw new Error(`重试耗尽: ${p}`);
 }
 
 async function fetchStats() {
@@ -59,14 +75,23 @@ async function fetchStats() {
   let merged = 0;
   for (const repo of EXTERNAL_REPOS) {
     try {
+      let repoCount = 0;
       for (let page = 1; ; page++) {
         const prs = await api(`/repos/${repo}/pulls?state=closed&per_page=100&page=${page}`);
         const hit = prs.filter((p) => p.merged_at && p.user && p.user.login === USER);
-        merged += hit.length;
+        repoCount += hit.length;
         if (prs.length < 100) break;
       }
+      if (repoCount > 0) console.log(`  ${repo}: ${repoCount}`);
+      merged += repoCount;
     } catch (e) {
-      console.log(`跳过 ${repo}: ${e.message.slice(0, 60)}`);
+      console.log(`  跳过 ${repo}: ${String(e.message).slice(0, 80)}`);
+      // 查不到就按已知的最低估，避免数字往回掉
+      const fallback = KNOWN_MERGED[repo];
+      if (fallback) {
+        console.log(`  使用已知值 ${repo}: ${fallback}`);
+        merged += fallback;
+      }
     }
   }
 
