@@ -74,7 +74,7 @@
 <p align="center">
   <img alt="星标" src="https://img.shields.io/badge/%E6%98%9F%E6%A0%87-13-f59e0b?style=flat-square&logo=github&logoColor=white">
   <img alt="项目" src="https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE-14-238636?style=flat-square&logo=github&logoColor=white">
-  <img alt="关注者" src="https://img.shields.io/badge/%E5%85%B3%E6%B3%A8%E8%80%85-2-58a6ff?style=flat-square">
+  <img alt="关注者" src="https://img.shields.io/badge/%E5%85%B3%E6%B3%A8%E8%80%85-3-58a6ff?style=flat-square">
   <img alt="合并PR" src="https://img.shields.io/badge/%E5%90%88%E5%B9%B6PR-2-8957e5?style=flat-square">
 </p>
 <!-- STATS:END -->
