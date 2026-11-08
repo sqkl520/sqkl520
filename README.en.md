@@ -46,8 +46,8 @@ Since 2025/07/31 I've been co-running the server with happy.
 The server is called Dream Sky & Soap (星穹幻境 & 肥皂).
 
 <p>
-  <a href="https://qm.qq.com/q/1045672363"><img src="https://img.shields.io/badge/QQ%20group-1045672363-12B7F5?style=flat-square&logo=tencentqq&logoColor=white" alt="QQ group" /></a>
-  <a href="https://docs.qq.com/aio/DVkVwTERSTFhjeHVo?p=u95sWD56Vb3mILe4Hd8nyP"><img src="https://img.shields.io/badge/Server%20Wiki-Dream%20Sky-2F81F7?style=flat-square" alt="Server Wiki" /></a>
+  <a href="https://qm.qq.com/q/1045672363"><img src="badges/qq-group.svg" alt="QQ group" /></a>
+  <a href="https://docs.qq.com/aio/DVkVwTERSTFhjeHVo?p=u95sWD56Vb3mILe4Hd8nyP"><img src="badges/server-wiki-en.svg" alt="Server Wiki" /></a>
 </p>
 
 ## What I've made
@@ -72,18 +72,18 @@ The server is called Dream Sky & Soap (星穹幻境 & 肥皂).
 
 <!-- STATS:START -->
 <p align="center">
-  <img alt="Star" src="https://img.shields.io/badge/Star-13-f59e0b?style=flat-square&logo=github&logoColor=white">
-  <img alt="Repos" src="https://img.shields.io/badge/Repos-14-238636?style=flat-square&logo=github&logoColor=white">
-  <img alt="Followers" src="https://img.shields.io/badge/Followers-3-58a6ff?style=flat-square">
-  <img alt="Merged PRs" src="https://img.shields.io/badge/Merged%20PRs-3-8957e5?style=flat-square">
+  <img alt="Star" src="badges/star.svg">
+  <img alt="Repos" src="badges/repos.svg">
+  <img alt="Followers" src="badges/followers.svg">
+  <img alt="Merged PRs" src="badges/merged-prs.svg">
 </p>
 <!-- STATS:END -->
 
 ## Find Cola
 
 <p>
-  <a href="https://qm.qq.com/q/3956131627"><img src="https://img.shields.io/badge/QQ-3956131627-12B7F5?style=flat-square&logo=tencentqq&logoColor=white" alt="QQ" /></a>
-  <a href="https://space.bilibili.com/3546747603257737"><img src="https://img.shields.io/badge/Bilibili-3546747603257737-FB7299?style=flat-square&logo=bilibili&logoColor=white" alt="Bilibili" /></a>
+  <a href="https://qm.qq.com/q/3956131627"><img src="badges/qq.svg" alt="QQ" /></a>
+  <a href="https://space.bilibili.com/3546747603257737"><img src="badges/bilibili.svg" alt="Bilibili" /></a>
 </p>
 
 QQ's the one I use most.
@@ -91,5 +91,5 @@ QQ's the one I use most.
 ## Find happy
 
 <p>
-  <a href="https://github.com/happy66dev"><img src="https://img.shields.io/badge/GitHub-happy66dev-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://github.com/happy66dev"><img src="badges/happy.svg" alt="GitHub" /></a>
 </p>

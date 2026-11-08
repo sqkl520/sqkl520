@@ -2,6 +2,7 @@
 // 只重写 <!-- STATS:START --> 与 <!-- STATS:END --> 之间的内容
 const fs = require('fs');
 const path = require('path');
+const { makeBadge } = require('./make-badge.js');
 
 const USER = 'sqkl520';
 const ROOT = __dirname;
@@ -16,6 +17,13 @@ const BADGES = [
   ['Followers', 'followers', '58a6ff', false],
   ['Merged PRs', 'merged_prs', '8957e5', false],
 ];
+
+const BADGE_FILE = {
+  star: 'star.svg',
+  repos: 'repos.svg',
+  followers: 'followers.svg',
+  merged_prs: 'merged-prs.svg',
+};
 
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 
@@ -95,20 +103,20 @@ async function fetchStats() {
   return { star: stars, repos: own.length, followers: user.followers, merged_prs: merged };
 }
 
-function badge(label, value, color, withLogo) {
-  let q = '?style=flat-square';
-  if (withLogo) q += '&logo=github&logoColor=white';
-  const src =
-    'https://img.shields.io/badge/' +
-    encodeURIComponent(label) +
-    '-' +
-    encodeURIComponent(String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) +
-    `-${color}${q}`;
-  return `  <img alt="${label}" src="${src}">`;
-}
+// 数据徽章用本地生成的 SVG（badges/*.svg），不依赖 shields.io
+const BADGE_DIR = path.join(ROOT, 'badges');
 
 function buildBlock(stats) {
-  const imgs = BADGES.map(([label, key, color, logo]) => badge(label, stats[key], color, logo));
+  const imgs = BADGES.map(([label, key, color, withLogo]) => {
+    const file = 'badges/' + BADGE_FILE[key];
+    const val = String(stats[key]).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    fs.writeFileSync(
+      path.join(BADGE_DIR, BADGE_FILE[key]),
+      makeBadge(label, val, color, withLogo ? 'github' : null),
+      'utf8'
+    );
+    return `  <img alt="${label}" src="${file}">`;
+  });
   return '<p align="center">\n' + imgs.join('\n') + '\n</p>';
 }
 
