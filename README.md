@@ -46,8 +46,8 @@
 服务器名为：星穹幻境 & 肥皂（Dream Sky & Soap）
 
 <p>
-  <a href="https://qm.qq.com/q/1045672363"><img src="https://img.shields.io/badge/QQ群-1045672363-12B7F5?logo=tencentqq&logoColor=white" alt="QQ群" /></a>
-  <a href="https://docs.qq.com/aio/DVkVwTERSTFhjeHVo?p=u95sWD56Vb3mILe4Hd8nyP"><img src="https://img.shields.io/badge/服务器Wiki-星穹幻境肥皂-2F81F7" alt="服务器 Wiki" /></a>
+  <a href="https://qm.qq.com/q/1045672363"><img src="https://img.shields.io/badge/QQ群-1045672363-12B7F5?style=flat-square&logo=tencentqq&logoColor=white" alt="QQ群" /></a>
+  <a href="https://docs.qq.com/aio/DVkVwTERSTFhjeHVo?p=u95sWD56Vb3mILe4Hd8nyP"><img src="https://img.shields.io/badge/服务器Wiki-星穹幻境肥皂-2F81F7?style=flat-square" alt="服务器 Wiki" /></a>
 </p>
 
 ## 我做的
@@ -82,8 +82,8 @@
 ## 找可乐
 
 <p>
-  <a href="https://qm.qq.com/q/3956131627"><img src="https://img.shields.io/badge/QQ-3956131627-12B7F5?logo=tencentqq&logoColor=white" alt="QQ" /></a>
-  <a href="https://space.bilibili.com/3546747603257737"><img src="https://img.shields.io/badge/Bilibili-3546747603257737-FB7299?logo=bilibili&logoColor=white" alt="Bilibili" /></a>
+  <a href="https://qm.qq.com/q/3956131627"><img src="https://img.shields.io/badge/QQ-3956131627-12B7F5?style=flat-square&logo=tencentqq&logoColor=white" alt="QQ" /></a>
+  <a href="https://space.bilibili.com/3546747603257737"><img src="https://img.shields.io/badge/Bilibili-3546747603257737-FB7299?style=flat-square&logo=bilibili&logoColor=white" alt="Bilibili" /></a>
 </p>
 
 常用 QQ。
@@ -91,5 +91,5 @@
 ## 找 happy
 
 <p>
-  <a href="https://github.com/happy66dev"><img src="https://img.shields.io/badge/GitHub-happy66dev-181717?logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://github.com/happy66dev"><img src="https://img.shields.io/badge/GitHub-happy66dev-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
 </p>
