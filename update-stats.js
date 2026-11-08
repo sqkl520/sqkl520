@@ -107,21 +107,24 @@ async function fetchStats() {
 const BADGE_DIR = path.join(ROOT, 'badges');
 
 function buildBlock(stats) {
+  let svgChanged = false;
   const imgs = BADGES.map(([label, key, color, withLogo]) => {
     const file = 'badges/' + BADGE_FILE[key];
     const val = String(stats[key]).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    fs.writeFileSync(
-      path.join(BADGE_DIR, BADGE_FILE[key]),
-      makeBadge(label, val, color, withLogo ? 'github' : null),
-      'utf8'
-    );
+    const svg = makeBadge(label, val, color, withLogo ? { icon: 'github' } : {});
+    const svgPath = path.join(BADGE_DIR, BADGE_FILE[key]);
+    const prev = fs.existsSync(svgPath) ? fs.readFileSync(svgPath, 'utf8') : '';
+    if (prev !== svg) {
+      fs.writeFileSync(svgPath, svg, 'utf8');
+      svgChanged = true;
+    }
     return `  <img alt="${label}" src="${file}">`;
   });
-  return '<p align="center">\n' + imgs.join('\n') + '\n</p>';
+  return { block: '<p align="center">\n' + imgs.join('\n') + '\n</p>', svgChanged };
 }
 
 (async () => {
-  const block = buildBlock(await fetchStats());
+  const { block, svgChanged } = buildBlock(await fetchStats());
   const re = new RegExp(
     START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
       '[\\s\\S]*?' +
@@ -144,7 +147,8 @@ function buildBlock(stats) {
     console.log(`已更新 ${path.basename(file)} 数据徽章`);
   }
 
-  if (!changed) console.log('数据无变化');
+  if (!changed && !svgChanged) console.log('数据无变化');
+  else if (svgChanged && !changed) console.log('徽章 SVG 已更新（数字变化）');
 })().catch((e) => {
   console.error('失败:', e.message);
   process.exit(1);
