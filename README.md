@@ -93,3 +93,7 @@
 <p>
   <a href="https://github.com/happy66dev"><img src="badges/happy.svg" alt="GitHub" /></a>
 </p>
+
+---
+
+<sub>这一版写于 2026 年。以前的版本收在 <a href="archive/">archive/</a> 里。</sub>

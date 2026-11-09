@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="20" role="img" aria-label="Server Wiki: Dream Sky">
+  <title>Server Wiki: Dream Sky</title>
+  <g shape-rendering="crispEdges">
+    <rect width="73" height="20" fill="#555"/>
+    <rect x="73" width="71" height="20" fill="#2F81F7"/>
+  </g>
+  
+  <g font-family="Verdana,'DejaVu Sans',Geneva,sans-serif" font-size="11" text-anchor="middle">
+    <text x="36.50" y="15" fill="#010101" fill-opacity=".35">Server Wiki</text>
+    <text x="36.50" y="14" fill="#fff">Server Wiki</text>
+    <text x="108.5" y="15" fill="#010101" fill-opacity=".35">Dream Sky</text>
+    <text x="108.5" y="14" fill="#fff">Dream Sky</text>
+  </g>
+</svg>

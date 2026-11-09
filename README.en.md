@@ -93,3 +93,7 @@ QQ's the one I use most.
 <p>
   <a href="https://github.com/happy66dev"><img src="badges/happy.svg" alt="GitHub" /></a>
 </p>
+
+---
+
+<sub>This version was written in 2026. Older versions live in <a href="archive/">archive/</a>.</sub>

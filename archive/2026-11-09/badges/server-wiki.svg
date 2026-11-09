@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="143" height="20" role="img" aria-label="服务器Wiki: 星穹幻境肥皂">
+  <title>服务器Wiki: 星穹幻境肥皂</title>
+  <g shape-rendering="crispEdges">
+    <rect width="67" height="20" fill="#555"/>
+    <rect x="67" width="76" height="20" fill="#2F81F7"/>
+  </g>
+  
+  <g font-family="Verdana,'DejaVu Sans',Geneva,sans-serif" font-size="11" text-anchor="middle">
+    <text x="33.50" y="15" fill="#010101" fill-opacity=".35">服务器Wiki</text>
+    <text x="33.50" y="14" fill="#fff">服务器Wiki</text>
+    <text x="105" y="15" fill="#010101" fill-opacity=".35">星穹幻境肥皂</text>
+    <text x="105" y="14" fill="#fff">星穹幻境肥皂</text>
+  </g>
+</svg>
